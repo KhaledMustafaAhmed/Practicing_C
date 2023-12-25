@@ -1,0 +1,135 @@
+- Data in the memory (RAM) is organized as a sequence of bytes.
+- Each byte is a group of eight consecutive bits.
+- Bitwise operators are useful when we need to perform actions on bits of the data.
+--------------------------------------------------------------------------------------------------------------------------------
+C supports six bitwise operators: 
+----------------------------------
+1- Bitwise AND operator &
+2- Bitwise OR operator |
+3- Bitwise XOR operator ^
+4- Bitwise complement operator ~
+5- Bitwise left shift operator <<
+6- Bitwise right shift operator >>
+--------------------------------------------------------------------------------------------------------------------------------
+Bitwise AND & operator: 
+-----------------------
+Bitwise AND is a binary operator.
+It sets each bit of the resultant value as 1 if corresponding bit in both operands is 1.
+
+Suppose a and b are two integer variables with initial value
+int a=10, b=11;
+
+Let us re-write integers in 8-bit binary representation
+a = 0000 1010
+b = 0000 1011
+
+c = a & b
+The above expression a & b will evaluate to 0000 1010 which is 10 in decimal.
+a       0000 1010
+b       0000 1011
+-----------------
+a & b   0000 1010
+
+Important Note: Bitwise AND operator is used extensively to check whether a particular bit of data is on (1) or off (0).
+--------------------------------------------------------------------------------------------------------------------------------
+Bitwise OR | operator:
+----------------------
+Bitwise OR is a binary operator. 
+It sets each bit of the resultant value as 1 if corresponding bit of any of its two operand is 1.
+
+Suppose a and b are two integer variables with initial value as.
+int a=2, b=13;
+
+Let us re-write the integer in 8-bit binary representation.
+a = 0000 0010
+b = 0000 1101
+
+c = a | b
+
+The above expression a|b will evaluate to 0000 1111 which is 15 in decimal.
+a       0000 0010
+b       0000 1101
+-----------------
+a | b   0000 1111
+
+Important Note: Bitwise OR operator is commonly used to set flag bit values.
+--------------------------------------------------------------------------------------------------------------------------------
+Bitwise XOR ^ operator: 
+-----------------------
+Bitwise XOR operator is also binary operator.
+It sets each bit of the resultant value to 1 whenever the corresponding bits of the two operands differ.
+x | y  |  x^y
+0 |  0 |   0
+0 |  1 |   1
+1 |  0 |   1
+1 |  1 |   0
+
+Suppose a and b are two integer variables with initial value as.
+int a=6, b=13;
+
+Let us re-write the integers in 8-bit binary representation:
+a = 0000 0110
+b = 0000 1101
+
+c = a ^ b
+The above expression a^b will evaluate to 0000 1011 which is 11 in decimal.
+
+a       0000 0110
+b       0000 1101
+-----------------
+a ^ b	0000 1011
+--------------------------------------------------------------------------------------------------------------------------------
+Bitwise complement ~ operator: 
+------------------------------
+Bitwise complement is a unary operator.
+It sets each bit of the resultant value to 1 if corresponding bit of the operand is 0 and vice versa.
+
+Suppose a is an integer variable with initial value as.
+int a=2;
+
+In 8-bit binary representation:
+a = 0000 0010
+
+c = ~a
+The above expression ~a will evaluate to 1111 1101 which is -3 (Twos complement) in decimal.
+--------------------------------------------------------------------------------------------------------------------------------
+Bitwise left shift << operator: 
+-------------------------------
+Bitwise left shift is a binary operator. It is used to shift bits to left n times. Consider the below example:
+int a=15;
+
+Which in 8-bit binary will be represented as:
+a = 0000 1111
+c = a << 3;
+The above expression a << 3; shifts bits of a three times to left and evaluates to 0111 1000 which is 120 in decimal.
+a       0000 1111
+a << 1  0001 1110
+a << 2  0011 1100
+a << 3  0111 1000
+
+Important note: Shifting bits to left causes insertion of zero from right
+                and shifting each bit to one position left from its current position.
+                The most significant bit (the left most bit) is dropped off on every left shift.
+--------------------------------------------------------------------------------------------------------------------------------
+Bitwise right shift >> operator: 
+--------------------------------
+Bitwise right shift is binary operator used to shift bits to right. Consider the below example:
+int a=15;
+
+Which in 8-bit binary will be represented as:
+a = 0000 1111
+c = a >> 3
+The above expression a >> 3 shifts bits of variable a three times right and will evaluate to 0000 0001 which is 1 in decimal
+a       0000 1111
+a >> 1  0000 0111
+a >> 2  0000 0011
+a >> 3  0000 0001
+
+Important note: C only supports Arithmetic Right Shift means instead of pushing 0 at MSB it pushes sign bit.
+Which means shifting bits to right causes insertion of 0 or 1 depending on the value of Most Significant Bit (sign bit).
+
+Important note: Shifting bits to right is equivalent to dividing by 2. 
+You can use bitwise right shift operator if you need to divide a number (unsigned number) by power of 2.
+
+Important note: In bitwise right shift 1 is inserted from right if the MSB is 1; otherwise 0 is inserted from right.
+However, in case of bitwise left shift always 0 is inserted from left.

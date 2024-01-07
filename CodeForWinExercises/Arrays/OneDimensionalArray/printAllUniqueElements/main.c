@@ -19,14 +19,39 @@ All unique elements in the array are: 3, 20, 12, 10
 int main(void)
 {
    int array[MAX_SIZE];
-   int freq[MAX_SIZE] = {0};
-   int index,size;
+   int freq[MAX_SIZE] ;
+   int index,size,j,count = 0;
    printf("Input size of array");
    scanf("%d", &size);
    printf("Input array");
    for(index = 0; index < size; index++)
    {
         scanf("%d,", &array[index]);
+        freq[index] = -1;
+   }
+   for(index = 0; index < size; index++)
+   {
+    count = 1;
+    for(j = index+1; j < size; j++)
+    {
+        if(array[j] == array[index])
+        {
+            count++;   
+            freq[j] = 0;
+        }
+    }
+    if(freq[index] != 0)
+        freq[index] = count;
+    
+        
+   }
+    printf("All unique elements in the array are:");
+   for(index = 0; index < size; index++)
+   {
+    if(freq[index] == 1)
+    {
+        printf("%d ", array[index]);
+    }
    }
    
     return 0;

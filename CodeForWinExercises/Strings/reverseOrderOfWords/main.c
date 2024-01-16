@@ -21,7 +21,17 @@ Codeforwin at programming learning love I
 #define MAX_SIZE 100 // Maximum string size
 int main()
 {
-    
+    char stringOne[MAX_SIZE], reverseOne[MAX_SIZE];
+    char *ptr = stringOne;
+    int lenght = 0,index = 0, wordStart, wordEnd;
+    printf("input string: ");
+    gets(stringOne);
+    while(*(ptr++) != '\0')
+    {
+        lenght++;
+    }
+    wordStart = lenght - 1;
+    wordEnd = lenght - 1;
     
     return 0;
 }

@@ -12,7 +12,29 @@ Pair of elements can make the given sum by the value of index 0 and 5
 
 int main(void)
 {   
-    
+    int array[6];
+    int i,j,sum, flag = 0;
+    printf("The given array : ");
+    for(i=0;i<6; i++)
+    {
+        scanf("%d",&array[i]);
+    }
+    printf("The given sum : ");
+    scanf("%d",&sum);
+    for(i=0;i<6;i++)
+    {
+        for(j=0;j<5; j++)
+        {
+            if(array[i] + array[j+1] == sum)
+            {
+                printf("Pair of elements can make the given sum by the value of index %d and %d", i,j+1);
+                flag = 1;
+                break;
+            }
+        }
+        if(flag)
+            break;
+    }
 
    
     return 0;
